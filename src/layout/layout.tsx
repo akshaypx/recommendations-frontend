@@ -1,6 +1,6 @@
-import { Button } from "antd";
-import { FC, ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
+import { Button } from 'antd';
+import { FC, ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface IProps {
   children: ReactNode;
@@ -8,9 +8,9 @@ interface IProps {
 
 const customVal = {
   imgUrl:
-    "https://www.ricoh-usa.com/_next/image?url=http%3A%2F%2Fimages.salsify.com%2Fimages%2Fhekdharwockugmlbj3q0%2Fricohimages_Equipment_Printers-and-Copiers_eqp-IP-C8500-10.png&w=1920&q=75",
-  title: "IP C8500",
-  type: "Color Laser Printer",
+    'https://www.ricoh-usa.com/_next/image?url=http%3A%2F%2Fimages.salsify.com%2Fimages%2Fhekdharwockugmlbj3q0%2Fricohimages_Equipment_Printers-and-Copiers_eqp-IP-C8500-10.png&w=1920&q=75',
+  title: 'IP C8500',
+  type: 'Color Laser Printer',
 };
 
 const layout: FC<IProps> = (props) => {
@@ -19,8 +19,10 @@ const layout: FC<IProps> = (props) => {
     <div className="h-screen w-full">
       <div className="min-h-[50px] flex justify-between items-center p-4 bg-blue-800 text-white">
         <div className="flex justify-start items-center gap-4">
-          <p className="font-bold">Recommendations App</p>
-          <Button type="primary" onClick={() => navigate("/kb")}>
+          <p className="font-bold" onClick={() => navigate('/')}>
+            Recommendations App
+          </p>
+          <Button type="primary" onClick={() => navigate('/kb')}>
             Knowledge Based
           </Button>
         </div>
