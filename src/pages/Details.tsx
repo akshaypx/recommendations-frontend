@@ -1,14 +1,15 @@
 // import Section from '../components/Section';
 
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   getItemsThatAreBoughtTogether,
   getItemsThatAreSimilarByDescription,
   getProductDetails,
-} from '../api/api';
-import Section from '../components/Section';
-import { ImageErrorEvent, TopInCatergory } from '../types';
+} from "../api/api";
+import Section from "../components/Section";
+import { ImageErrorEvent, TopInCatergory } from "../types";
+import { Button } from "antd";
 
 // interface Data {
 //   title: string;
@@ -51,29 +52,39 @@ const Details = () => {
         <div className="w-80 h-80  overflow-hidden ">
           <img
             className="w-80 h-80"
-            src={data['Product Image URL']}
+            src={data["Product Image URL"]}
             alt="product image"
             onError={(e: ImageErrorEvent) =>
               (e.target.src =
-                'https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg')
+                "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg")
             }
           />
         </div>
         <div className="bg-gray-100 flex-1 rounded-lg flex flex-col gap-4 p-4">
-          <p className="text-2xl font-bold">{data['Product Title']}</p>
-          <p className="text-lg text-gray-500">{data['Product Type']}</p>
-          <p className="font-bold">ID - {data['Product ID']}</p>
-          <p className="leading-10">{data['generated_description']}</p>
+          <p className="text-2xl font-bold">{data["Product Title"]}</p>
+          <p className="text-lg text-gray-500">{data["Product Type"]}</p>
+          <p className="font-bold">ID - {data["Product ID"]}</p>
+          <p className="leading-10">{data["generated_description"]}</p>
+          <div className="flex w-full gap-4">
+            <Button className="flex-1" type="default">
+              Add to Cart
+            </Button>
+            <Button className="flex-1" type="primary">
+              Buy Now
+            </Button>
+          </div>
         </div>
       </div>
       <div className="flex flex-col gap-4 p-2">
         <Section
-          title={'Similar Items'}
-          fetchData={() => getItemsThatAreSimilarByDescription(data['Product ID'])}
+          title={"Similar Items by Description"}
+          fetchData={() =>
+            getItemsThatAreSimilarByDescription(data["Product ID"])
+          }
         />
         <Section
-          title={'Items bought together'}
-          fetchData={() => getItemsThatAreBoughtTogether(data['Product ID'])}
+          title={"Items usually bought together"}
+          fetchData={() => getItemsThatAreBoughtTogether(data["Product ID"])}
         />
       </div>
     </div>

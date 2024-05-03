@@ -1,57 +1,69 @@
 import { Button, Card, Checkbox, CheckboxProps, Select } from "antd";
 import { useEffect, useState } from "react";
-import CustomCard from "../components/CustomCard";
-
-interface Item {
-  value: string;
-  label: string;
-}
-
-const customData = {
-  title: "IP C8500",
-  type: "Color Laser Printer",
-  id: "434009",
-  description:
-    "IP C8500 is a Color Laser Printer with features such as Prints up to 45 ppm, 4800x1200 dpi max print resolution, Paper capacity up to 4,850 pages, Multiple high-quality finishing options for professional output.",
-  imgUrl:
-    "https://www.ricoh-usa.com/_next/image?url=http%3A%2F%2Fimages.salsify.com%2Fimages%2Fhekdharwockugmlbj3q0%2Fricohimages_Equipment_Printers-and-Copiers_eqp-IP-C8500-10.png&w=1920&q=75",
-};
+// import CustomCard from "../components/CustomCard";
 
 const KnowledgeBased = () => {
   const [option1, setOption1] = useState<string>("Select");
-  const [option2, setOption2] = useState<string>("Select");
-  const [list, setList] = useState<Item[]>([]);
+  //   const [option2, setOption2] = useState<string>("Select");
+  const [questions, setQuestions] = useState<
+    {
+      title: string;
+      items: string[];
+    }[]
+  >([]);
   const handleChange1 = (value: string) => {
-    console.log(`selected ${value}`);
+    // console.log(`selected ${value}`);
     setOption1(value);
-  };
-  const handleChange2 = (value: string) => {
-    console.log(`selected ${value}`);
-    setOption2(value);
   };
   useEffect(() => {
     if (option1 === "printer") {
-      setOption2("");
-      setList([
-        { value: "color", label: "Color" },
-        { value: "bnw", label: "Black and White" },
+      //   setOption2("");
+      setQuestions([
+        {
+          title: "For Business with:",
+          items: [
+            "151-500 Employees",
+            "501-1000 Employees",
+            "<150 Employees ",
+            "1000+ Employees",
+            "K-12",
+            "State and Local Government",
+            "1000+ ",
+            "150 Employees",
+            "501-1000",
+          ],
+        },
+        {
+          title: "Color Capabilities",
+          items: ["Black & White", "Color"],
+        },
+        {
+          title: "Print Speed(ppm)",
+          items: ["20-40", "41-60", "60+"],
+        },
+        {
+          title: "Max Paper Size",
+          items: [
+            "8.5x14 (Legal)",
+            "11x17 (Ledger) ",
+            "12x18",
+            "11x17",
+            "13x19.2 (SRA3+)",
+          ],
+        },
+        {
+          title: "Finishing Options",
+          items: ["Staple ", "Hole Punch", "Booklet "],
+        },
       ]);
     }
     if (option1 === "supply") {
-      setOption2("");
-      setList([
-        { value: "consumable", label: "Consumables" },
-        { value: "inkAndToner", label: "Ink and Toners" },
-        { value: "part", label: "Maintenance and Parts" },
-      ]);
+      //   setOption2("");
+      setQuestions([]);
     }
     if (option1 === "camera") {
-      setOption2("");
-      setList([
-        { value: "dslr", label: "DSLR" },
-        { value: "lens", label: "Lens" },
-        { value: "compact", label: "Compact" },
-      ]);
+      //   setOption2("");
+      setQuestions([]);
     }
   }, [option1]);
 
@@ -78,38 +90,18 @@ const KnowledgeBased = () => {
               ]}
             />
           </div>
-          <div className="w-60">
-            <Select
-              defaultValue={option2}
-              className="w-60"
-              onChange={handleChange2}
-              //   TODO: display categories here
-              options={list}
-            />
-          </div>
         </div>
         <p className="py-2 font-semibold">Please check the required fields</p>
-        <div className="flex flex-col gap-4 py-2">
-          <Checkbox onChange={onChange}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam at
-            explicabo quasi dolore perspiciatis aspernatur odio dolorum deleniti
-            impedit et!
-          </Checkbox>
-          <Checkbox onChange={onChange}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
-            sed!
-          </Checkbox>
-          <Checkbox onChange={onChange}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
-            aperiam exercitationem fuga.
-          </Checkbox>
-          <Checkbox onChange={onChange}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Asperiores?
-          </Checkbox>
-          <Checkbox onChange={onChange}>
-            Lorem ipsum dolor sit amet consectetur adipisicing.
-          </Checkbox>
+        <div className="flex gap-4 py-2">
+          {questions.length > 0 &&
+            questions.map((val) => (
+              <div className="flex flex-col">
+                <p className="font-bold text-lg">{val.title}</p>
+                {val.items.map((item) => (
+                  <Checkbox onChange={onChange}>{item}</Checkbox>
+                ))}
+              </div>
+            ))}
         </div>
         <div className="w-full text-right">
           <Button>Submit</Button>
@@ -120,7 +112,7 @@ const KnowledgeBased = () => {
         <div className="flex flex-wrap gap-8">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_) => (
             <div className="w-60 ">
-              <CustomCard customData={customData} />
+              {/* <CustomCard customData={customData} /> */}
             </div>
           ))}
         </div>
