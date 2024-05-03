@@ -35,7 +35,7 @@ const layout: FC<IProps> = (props) => {
             <p>Akshay Srivastava</p>
           </div>
           <p>My orders</p>
-          {[1, 2, 3, 4].map((val) => (
+          {[1, 2, 3, 4].map(() => (
             <div className="bg-gray-200 rounded-lg w-full min-h-16 flex justify-start pl-4 items-center gap-4">
               <div className="rounded-full  w-10 h-10 flex justify-center items-center">
                 <img src={customVal.imgUrl} alt="" />
@@ -47,7 +47,7 @@ const layout: FC<IProps> = (props) => {
             </div>
           ))}
           <p>Recently viewed</p>
-          {[1, 2, 3, 4].map((val) => (
+          {[1, 2, 3, 4].map(() => (
             <div className="bg-gray-200 rounded-lg w-full min-h-16 flex justify-start pl-4 items-center gap-4">
               <div className="rounded-full  w-10 h-10 flex justify-center items-center">
                 <img src={customVal.imgUrl} alt="" />

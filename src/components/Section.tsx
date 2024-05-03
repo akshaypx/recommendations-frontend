@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import CustomCard from "./CustomCard";
 
 interface IProps {
@@ -22,7 +22,7 @@ const Section: FC<IProps> = (props) => {
     <div className="max-h-fit rounded-lg bg-gray-200 p-4">
       <p className="font-bold pb-4 text-lg">{props.title}</p>
       <div className="flex overflow-y-scroll no-scrollbar gap-4 p-4">
-        {arr.map((data) => (
+        {arr.map(() => (
           <CustomCard customData={customData} />
         ))}
       </div>
