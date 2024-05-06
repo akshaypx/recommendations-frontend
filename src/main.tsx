@@ -1,14 +1,14 @@
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./layout/layout.tsx";
-import Details from "./pages/Details.tsx";
-import KnowledgeBased from "./pages/KnowledgeBased.tsx";
+import * as ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './layout/layout';
+import Details from './pages/Details';
+import KnowledgeBased from './pages/KnowledgeBased';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <Layout>
         <App />
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/product/:id",
+    path: '/product/:id',
     element: (
       <Layout>
         <Details />
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/kb",
+    path: '/kb',
     element: (
       <Layout>
         <KnowledgeBased />
@@ -33,6 +33,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <RouterProvider router={router} />
-);
+ReactDOM.createRoot(document.getElementById('root')!).render(<RouterProvider router={router} />);

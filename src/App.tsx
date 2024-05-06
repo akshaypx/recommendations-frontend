@@ -1,10 +1,8 @@
 import {
-  getTopSellingInColor,
   getTopSellingInBW,
   getItemsThatSimilarUsersBought,
   getItemsThatSimilarUsersViewed,
   getItemsThatSimilarUsersBoughtLocation,
-  getTopSelling,
 } from './api/api';
 import './App.css';
 import CustomSection from './components/CategorySection';
