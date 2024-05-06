@@ -160,3 +160,21 @@ export async function getItemsThatSimilarUsersBoughtLocation(location: string) {
   console.log(response_1);
   return response_1;
 }
+
+export async function getFilteredData(filters: { [key: string]: string }) {
+  const response = await fetch("http://127.0.0.1:8000/knowledge-based", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      product_type: filters["Type"],
+      print_resolution: filters["Print Resolution"],
+      page_capacity: filters["Paper Capacity"],
+      print_speed: filters["Print Speed"],
+    }),
+  });
+  const response_1 = await response.json();
+  console.log(response_1);
+  return response_1;
+}

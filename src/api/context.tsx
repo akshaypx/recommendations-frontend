@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react";
+import { createContext, useState } from "react";
 interface MyContextData {
   value: string;
   updateValue: (newValue: string) => void;

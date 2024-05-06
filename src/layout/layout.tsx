@@ -6,7 +6,7 @@ import RecentlyViewed from "../components/RecentlyViewed";
 import NagarroLogo from "../assets/Nagarro_Logo.svg";
 import { TopInCatergory } from "../types";
 import { getUserPurchases, getUserViewed } from "../api/api";
-import { LocationContext, MyLocationProvider } from "../api/context";
+import { LocationContext } from "../api/context";
 
 interface IProps {
   children: ReactNode;

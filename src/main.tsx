@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layout/layout.tsx";
 import Details from "./pages/Details.tsx";
 import KnowledgeBased from "./pages/KnowledgeBased.tsx";
-import { createContext } from "react";
+
 import { MyLocationProvider } from "./api/context.tsx";
 
 const router = createBrowserRouter([
