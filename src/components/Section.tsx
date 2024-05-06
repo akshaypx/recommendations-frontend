@@ -1,7 +1,7 @@
-import { FC, useEffect, useState } from 'react';
-import { ClipLoader } from 'react-spinners';
-import { TopInCatergory } from '../types';
-import CustomCard from './CustomCard';
+import { FC, useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
+import { TopInCatergory } from "../types";
+import CustomCard from "./CustomCard";
 
 interface IProps {
   title: string;
@@ -32,6 +32,7 @@ const Section: FC<IProps> = ({ title, fetchData }) => {
       .then(() => setLoading(false));
     // setData(response);
   }, [fetchData]);
+  console.log("section reredderde");
 
   return data.length > 0 ? (
     <div className="max-h-fit rounded-lg bg-gray-200 p-4">

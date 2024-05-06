@@ -1,20 +1,21 @@
-import { useEffect, useState } from "react";
+import { FC } from "react";
 import { TopInCatergory } from "../types";
-import { getUserViewed } from "../api/api";
+import { useNavigate } from "react-router-dom";
 
-const RecentlyViewed = () => {
-  const [data, setData] = useState<TopInCatergory[]>([]);
-  useEffect(() => {
-    getUserViewed("User3").then((val) => {
-      if (val.length > 5) setData(val.slice(0, 5));
-      else setData(val);
-    });
-  }, []);
+interface Props {
+  data2: TopInCatergory[];
+}
+
+const RecentlyViewed: FC<Props> = (props) => {
+  const navigate = useNavigate();
   return (
     <>
       <p>Recently viewed</p>
-      {data.map((val) => (
-        <div className="bg-gray-200 rounded-lg w-full min-h-16 flex justify-start pl-4 items-center gap-4">
+      {props.data2.map((val) => (
+        <div
+          className="bg-gray-200 rounded-lg w-full min-h-16 flex justify-start pl-4 items-center gap-4 cursor-pointer hover:shadow-lg transition hover:bg-gray-100"
+          onClick={() => navigate(`/product/${val["Product ID"]}`)}
+        >
           <div className="rounded-full  w-10 h-10 flex justify-center items-center">
             <img src={val["Product Image URL"]} alt="" />
           </div>
