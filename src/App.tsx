@@ -1,7 +1,5 @@
 import { useContext, useEffect } from "react";
 import {
-  getTopSellingInColor,
-  getTopSellingInBW,
   getItemsThatSimilarUsersBought,
   getItemsThatSimilarUsersViewed,
   getItemsThatSimilarUsersBoughtLocation,
@@ -9,6 +7,7 @@ import {
 import "./App.css";
 import Section from "./components/Section";
 import { LocationContext } from "./api/context";
+import CustomSection from "./components/CategorySection";
 
 function App() {
   const location = useContext(LocationContext);
@@ -17,14 +16,7 @@ function App() {
   }, [location?.value]);
   return (
     <div className="flex flex-col gap-4 p-2 pl-1">
-      <Section
-        title={"Top Selling in Color Laser Printer"}
-        fetchData={getTopSellingInColor}
-      />
-      <Section
-        title={"Top Selling in B&W Printer"}
-        fetchData={getTopSellingInBW}
-      />
+      <CustomSection />
       <Section
         title={"Similar Users also Bought"}
         fetchData={getItemsThatSimilarUsersBought}

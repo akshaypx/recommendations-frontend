@@ -10,6 +10,21 @@ export async function getProductDetails(id: number) {
   return response_1;
 }
 
+export async function getTopSelling(category: string) {
+  const response = await fetch("http://127.0.0.1:8000/top-selling-in-x", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      category: category,
+    }),
+  });
+  const response_1 = await response.json();
+  console.log(response_1);
+  return response_1;
+}
+
 export async function getTopSellingInBW() {
   const response = await fetch("http://127.0.0.1:8000/top-selling-in-x", {
     method: "POST",
