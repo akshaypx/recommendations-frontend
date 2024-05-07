@@ -16,6 +16,7 @@ interface ItemType {
   'Associated With(model)'?: null;
 }
 
+// filter parameters to filter products
 const printerData = [
   {
     question: 'What type of Printer do you want',
@@ -79,7 +80,8 @@ const printerData = [
 
 const KnowledgeBased = () => {
   const [option1, setOption1] = useState<string>('Select');
-  //   const [option2, setOption2] = useState<string>("Select");
+  const [selectedValues, setSelectedValues] = useState<{ [key: string]: string }>({});
+  const [responseData, setResponseData] = useState([]);
   const [questions, setQuestions] = useState<
     {
       question: string;
@@ -91,13 +93,12 @@ const KnowledgeBased = () => {
     }[]
   >([]);
 
-  const [selectedValues, setSelectedValues] = useState<{ [key: string]: string }>({});
-  const [responseData, setResponseData] = useState([]);
-
+  // Handle category selection
   const handleChange1 = (value: string) => {
     setOption1(value);
   };
 
+  // Handle filter parameter selection
   const handleSelectChange = (title: string, value: string) => {
     setSelectedValues((prevValues) => {
       const newValues = {
@@ -137,7 +138,6 @@ const KnowledgeBased = () => {
                 defaultValue={option1}
                 className="w-4/5"
                 onChange={handleChange1}
-                //   TODO: display categories here
                 options={[
                   { value: 'printer', label: 'Printer' },
                   { value: 'supply', label: 'Supplies' },
@@ -147,17 +147,17 @@ const KnowledgeBased = () => {
             </div>
           </div>
           <p className="py-2 font-semibold">Please check the required fields</p>
+
+          {/* display the filters */}
           <div className="flex flex-col gap-4 py-2 w-4/5 item-center justify-center">
             {questions.length > 0 &&
               questions.map(({ question, title, items }) => (
                 <div className="flex flex-col">
                   <p>{question}</p>
                   <Select
-                    // defaultValue={title}
                     value={selectedValues[title] || 'Select'}
                     className="w-full"
                     onChange={(value) => handleSelectChange(title, value)}
-                    //   TODO: display categories here
                     options={items}
                   />
                 </div>
@@ -168,6 +168,8 @@ const KnowledgeBased = () => {
           </div>
         </div>
       </div>
+
+      {/* Display the recommended product */}
       <div className="flex flex-col gap-4">
         <p className="p-4 font-bold">Recommended Products</p>
         <div className="flex flex-wrap gap-8">
