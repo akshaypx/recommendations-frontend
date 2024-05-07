@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './layout/layout';
 import Details from './pages/Details';
 import KnowledgeBased from './pages/KnowledgeBased';
+import { MyLocationProvider } from './api/context';
 
 const router = createBrowserRouter([
   {
@@ -33,4 +34,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(<RouterProvider router={router} />);
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <MyLocationProvider>
+    <RouterProvider router={router} />
+  </MyLocationProvider>
+);

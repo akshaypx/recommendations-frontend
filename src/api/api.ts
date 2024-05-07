@@ -124,7 +124,7 @@ export async function getUserViewed(userid: string) {
 }
 
 // items that are freqently bought at the user's location by other users
-export async function getItemsThatSimilarUsersBoughtLocation() {
+export async function getItemsThatSimilarUsersBoughtLocation(location: string) {
   const response = await fetch('http://127.0.0.1:8000/similar-users-location', {
     method: 'POST',
     headers: {
@@ -132,7 +132,7 @@ export async function getItemsThatSimilarUsersBoughtLocation() {
     },
     body: JSON.stringify({
       userid: 'User3',
-      location: 'Alaska',
+      location: location,
     }),
   });
   const response_1 = await response.json();

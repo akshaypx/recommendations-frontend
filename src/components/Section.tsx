@@ -19,6 +19,7 @@ const Section: FC<IProps> = ({ title, fetchData }) => {
       .then((response) => setData(response))
       .then(() => setLoading(false));
   }, [fetchData]);
+  console.log('section reredderde');
 
   // Display the section only if items list is available else don't display anything
   return data.length > 0 ? (
