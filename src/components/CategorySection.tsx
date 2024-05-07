@@ -2,21 +2,10 @@ import { Select } from 'antd';
 import { useEffect, useState } from 'react';
 import { ClipLoader } from 'react-spinners';
 import { getTopSelling } from '../api/api';
-import { TopInCatergory } from '../types';
+import { TopInCategory } from '../types';
 import CustomCard from './CustomCard';
 
-// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-// const customData = {
-//   title: 'IP C8500',
-//   type: 'Color Laser Printer',
-//   id: '434009',
-//   description:
-//     'IP C8500 is a Color Laser Printer with features such as Prints up to 45 ppm, 4800x1200 dpi max print resolution, Paper capacity up to 4,850 pages, Multiple high-quality finishing options for professional output.',
-//   imgUrl:
-//     'https://www.ricoh-usa.com/_next/image?url=http%3A%2F%2Fimages.salsify.com%2Fimages%2Fhekdharwockugmlbj3q0%2Fricohimages_Equipment_Printers-and-Copiers_eqp-IP-C8500-10.png&w=1920&q=75',
-// };
-
+// filter parameters for type of products
 const items = [
   { value: 'Color Laser Printer', label: 'Color Laser Printer' },
   { value: 'B&W Laser Printer', label: 'B&W Laser Printer' },
@@ -39,7 +28,7 @@ const items = [
 ];
 
 const CustomSection = () => {
-  const [data, setData] = useState<TopInCatergory[]>([]);
+  const [data, setData] = useState<TopInCategory[]>([]);
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState('Color Laser Printer');
 
@@ -48,9 +37,9 @@ const CustomSection = () => {
     getTopSelling(category)
       .then((response) => setData(response))
       .then(() => setLoading(false));
-    // setData(response);
   }, [category]);
 
+  // handle filter parameter selection
   const handleChange = (value: string) => {
     setCategory(value);
   };

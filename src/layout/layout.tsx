@@ -1,20 +1,13 @@
-import { Button } from "antd";
-import { FC, ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
-import MyPurchases from "../components/MyPurchases";
-import RecentlyViewed from "../components/RecentlyViewed";
-import NagarroLogo from "../assets/Nagarro_Logo.svg";
+import { Button } from 'antd';
+import { FC, ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
+import MyPurchases from '../components/MyPurchases';
+import RecentlyViewed from '../components/RecentlyViewed';
+import NagarroLogo from '../assets/Nagarro_Logo.svg';
 
 interface IProps {
   children: ReactNode;
 }
-
-// const customVal = {
-//   imgUrl:
-//     "https://www.ricoh-usa.com/_next/image?url=http%3A%2F%2Fimages.salsify.com%2Fimages%2Fhekdharwockugmlbj3q0%2Fricohimages_Equipment_Printers-and-Copiers_eqp-IP-C8500-10.png&w=1920&q=75",
-//   title: "IP C8500",
-//   type: "Color Laser Printer",
-// };
 
 const layout: FC<IProps> = (props) => {
   const navigate = useNavigate();
@@ -25,16 +18,16 @@ const layout: FC<IProps> = (props) => {
           <img src={NagarroLogo} alt="" />
           <a
             className="font-bold cursor-pointer hover:text-gray-300 transition"
-            onClick={() => navigate("/")}
+            onClick={() => navigate('/')}
           >
             Recommendations App
           </a>
         </div>
         <div className="flex justify-end items-center gap-4">
-          <Button type="primary" onClick={() => navigate("/")}>
+          <Button type="primary" onClick={() => navigate('/')}>
             Home
           </Button>
-          <Button type="primary" onClick={() => navigate("/kb")}>
+          <Button type="primary" onClick={() => navigate('/kb')}>
             Knowledge Based
           </Button>
           <p>Logout</p>
