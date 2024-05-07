@@ -1,12 +1,11 @@
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import * as ReactDOM from "react-dom/client";
+import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./layout/layout.tsx";
-import Details from "./pages/Details.tsx";
-import KnowledgeBased from "./pages/KnowledgeBased.tsx";
-
-import { MyLocationProvider } from "./api/context.tsx";
+import Layout from "./layout/layout";
+import Details from "./pages/Details";
+import KnowledgeBased from "./pages/KnowledgeBased";
+import { MyLocationProvider } from "./api/context";
 
 const router = createBrowserRouter([
   {

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MyPurchases from "../components/MyPurchases";
 import RecentlyViewed from "../components/RecentlyViewed";
 import NagarroLogo from "../assets/Nagarro_Logo.svg";
-import { TopInCatergory } from "../types";
+import { TopInCategory } from "../types";
 import { getUserPurchases, getUserViewed } from "../api/api";
 import { LocationContext } from "../api/context";
 
@@ -16,8 +16,8 @@ const layout: FC<IProps> = (props) => {
   const [user, setUser] = useState("User1");
   const location = useContext(LocationContext);
 
-  const [data2, setData2] = useState<TopInCatergory[]>([]);
-  const [data, setData] = useState<TopInCatergory[]>([]);
+  const [data2, setData2] = useState<TopInCategory[]>([]);
+  const [data, setData] = useState<TopInCategory[]>([]);
 
   useEffect(() => {
     console.log(location, "changed");

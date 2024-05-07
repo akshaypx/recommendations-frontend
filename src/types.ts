@@ -1,4 +1,4 @@
-export interface TopInCatergory {
+export interface TopInCategory {
   href: string;
   'Product Title': string;
   'Product Type': string;
